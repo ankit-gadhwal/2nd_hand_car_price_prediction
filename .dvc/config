@@ -1,0 +1,4 @@
+[core]
+    remote = myremote
+['remote "myremote"']
+    url = https://github.com/ankit-gadhwal/2nd_hand_car_price_prediction.git

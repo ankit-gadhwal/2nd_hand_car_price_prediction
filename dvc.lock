@@ -1,0 +1,77 @@
+schema: '2.0'
+stages:
+  data_collection:
+    cmd: python src\data\data_collection.py
+    deps:
+    - path: params.yaml
+      hash: md5
+      md5: 7321bc5937d27351cd1c692718f231c8
+      size: 72
+    - path: src\data\data_collection.py
+      hash: md5
+      md5: 62727e4c31f5fb11e1d939d00dabba32
+      size: 2478
+    outs:
+    - path: data/raw
+      hash: md5
+      md5: ced9f82441efc41dfcb2cf1b8b4a3dc2.dir
+      size: 54368
+      nfiles: 3
+  data_preparation:
+    cmd: python src\data\data_prep.py
+    deps:
+    - path: data\raw
+      hash: md5
+      md5: ced9f82441efc41dfcb2cf1b8b4a3dc2.dir
+      size: 54368
+      nfiles: 3
+    - path: src\data\data_prep.py
+      hash: md5
+      md5: 5de0b13dd3cac9c31e280b6baba38299
+      size: 3104
+    outs:
+    - path: data\processed
+      hash: md5
+      md5: e71ce3793f488718d2bede2f1876e928.dir
+      size: 102602
+      nfiles: 3
+  model_building:
+    cmd: python src\models\model_building.py
+    deps:
+    - path: data\processed\train_processed.csv
+      hash: md5
+      md5: e5bffb8efe674ead24817651bb2df7cf
+      size: 81916
+    - path: data\processed\val_processed.csv
+      hash: md5
+      md5: deaf771aba7f45213aa8e11d71e22dad
+      size: 10382
+    - path: src\models\model_building.py
+      hash: md5
+      md5: 18753bcb5c70538aa7a57cc39e049a82
+      size: 2274
+    outs:
+    - path: car_price_model.keras
+      hash: md5
+      md5: 9e143225c386e3fe0d01d7ea49ec3c3a
+      size: 423404
+  model_eval:
+    cmd: python src\models\model_eval.py
+    deps:
+    - path: car_price_model.keras
+      hash: md5
+      md5: 9e143225c386e3fe0d01d7ea49ec3c3a
+      size: 423404
+    - path: data\processed\test_processed.csv
+      hash: md5
+      md5: 5068509555a52ba78af35e44882c2109
+      size: 10304
+    - path: src\models\model_eval.py
+      hash: md5
+      md5: 82c6d76173fd5440a2f62be65b188b9c
+      size: 2087
+    outs:
+    - path: reports/metrics.json
+      hash: md5
+      md5: 661f97f69f1378bb101024f693eff748
+      size: 101
