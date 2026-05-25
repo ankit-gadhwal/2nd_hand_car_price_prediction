@@ -20,11 +20,11 @@ stages:
     - data\processed\val_processed.csv
     - src\models\model_building.py
     outs:
-    - car_price_model.keras
+    - car_price_model.h5
   model_eval:
     cmd: python src\models\model_eval.py
     deps:
-    - car_price_model.keras
+    - car_price_model.h5
     - data\processed\test_processed.csv
     - src\models\model_eval.py
     outs:

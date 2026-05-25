@@ -64,7 +64,7 @@ def main():
 
         history = model.fit(train_dataset,validation_data = val_dataset,epochs=100,verbose=1)
         
-        model.save("car_price_model.keras")
+        model.save("car_price_model.h5")
 
     except Exception as e:
         raise Exception(f"Error occured: {e}")

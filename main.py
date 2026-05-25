@@ -11,7 +11,7 @@ app = FastAPI()
 # ----------------------------------------
 # Load Trained Model
 # ----------------------------------------
-model = load_model("car_price_model.keras")
+model = load_model("car_price_model.h5")
 
 # ----------------------------------------
 # Home Route

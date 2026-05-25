@@ -48,30 +48,30 @@ stages:
       size: 10382
     - path: src\models\model_building.py
       hash: md5
-      md5: 18753bcb5c70538aa7a57cc39e049a82
-      size: 2274
+      md5: 95e66e9004bdeadb4ea1948e358ba9b6
+      size: 2271
     outs:
-    - path: car_price_model.keras
+    - path: car_price_model.h5
       hash: md5
-      md5: 9e143225c386e3fe0d01d7ea49ec3c3a
-      size: 423404
+      md5: 6d3104a4f9dd507452ff17f0b4e9f56e
+      size: 429152
   model_eval:
     cmd: python src\models\model_eval.py
     deps:
-    - path: car_price_model.keras
+    - path: car_price_model.h5
       hash: md5
-      md5: 9e143225c386e3fe0d01d7ea49ec3c3a
-      size: 423404
+      md5: 6d3104a4f9dd507452ff17f0b4e9f56e
+      size: 429152
     - path: data\processed\test_processed.csv
       hash: md5
       md5: 5068509555a52ba78af35e44882c2109
       size: 10304
     - path: src\models\model_eval.py
       hash: md5
-      md5: 82c6d76173fd5440a2f62be65b188b9c
-      size: 2087
+      md5: 8c72c2db4ac19050c7d45896f18524d6
+      size: 2084
     outs:
     - path: reports/metrics.json
       hash: md5
-      md5: 661f97f69f1378bb101024f693eff748
-      size: 101
+      md5: a67ad2685f4504a067ce260a2f96d207
+      size: 102

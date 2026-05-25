@@ -37,7 +37,7 @@ def main():
         )
 
         # load model
-        model = load_model("car_price_model.keras")
+        model = load_model("car_price_model.h5")
         
         # load test data
         test_df = data_load(os.path.join(processed_path,"test_processed.csv"))

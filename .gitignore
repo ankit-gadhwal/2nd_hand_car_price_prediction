@@ -88,3 +88,4 @@ target/
 # Mypy cache
 .mypy_cache/
 
+/car_price_model.h5
