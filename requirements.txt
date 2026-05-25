@@ -1,8 +1,7 @@
-tensorflow
+tensorflow==2.13.0
 fastapi
 uvicorn
 pandas
 numpy
 scikit-learn
 python-multipart
-python-3.11.9
